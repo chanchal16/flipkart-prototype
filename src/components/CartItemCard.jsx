@@ -25,8 +25,9 @@ export const CartItemCard = ({product}) => {
         
         <div className="flex flex-col flex-grow">
             <strong className="font-medium">{product.name}</strong>
+            {/* {product.discount && <small className="mr-2">Discount: ₹{product.discount}</small> } */}
             <div className="flex grid-gap-4 pt-4">
-                {/* <small className="">Discount: {product.discount} %</small> */}
+                
                 {
                     checkExistanceInArray(cart, product.id) ? 
                     <div className="flex items-center justify-between">

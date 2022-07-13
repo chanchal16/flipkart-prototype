@@ -51,6 +51,7 @@ export const Cart = () => {
                                         <li key={item.id} className="flex flex-col rounded">
                                             <strong className="text-gray-4 font-medium mb-2">{item.name} {item.quantity > 1 ? `(x ${item.quantity})`: ""}</strong>
                                             <small>Price: {item.price * item.quantity}</small>
+                                           {item.discount && <small>Discount: ₹{item.discount}</small>}
                                         </li>
                                     )
                                 })
@@ -58,11 +59,18 @@ export const Cart = () => {
                         </ul>
 
                         <hr />
-
+                        {/* <div>
+                        Discount: {
+                                cart.reduce((acc,value)=>{
+                                    return parseInt(acc.discount,10) + parseInt(value.discount,10)
+                                })
+                            }
+                        </div> */}
+                            <hr/>
                         <div className="">
                             Total: {
                                 cart.reduce((acc, value) => {
-                                    return acc + (value.price * value.quantity);
+                                    return value.discount ? acc + (value.price * value.quantity) - value.discount : acc + (value.price * value.quantity)
                                 }, 0)
                             }
                         </div>
