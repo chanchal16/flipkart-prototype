@@ -1,15 +1,16 @@
 import React from 'react'
 import {IoIosArrowDown} from 'react-icons/io'
-import {AiOutlineShoppingCart} from 'react-icons/ai'
+import {AiOutlineShoppingCart} from 'react-icons/ai';
+import {Link} from 'react-router-dom'
 
 export const Navbar = () => {
   return (
     <nav className='bg-blue-500'>
         <div className="app-container flex items-center md:justify-between p-3.5  text-lg">
             <div className='flex gap-6 w-3/4'>
-                <p className="text-xl text-white hover:text-yellow-300">
+                <Link to='/' className="text-xl text-white hover:text-yellow-300">
                     Flipkart
-                </p>
+                </Link>
                 <input type='search' className='w-3/4' />
             </div>
 
@@ -20,11 +21,11 @@ export const Navbar = () => {
                     <span className='flex items-center text-white'> More <IoIosArrowDown size='1.5rem' /></span>
                 
                     </li>              
-                    <li>
+                    <Link to='/cart'> <li>
                         <span className="text-white link flex items-center" aria-label="Add post">
                             <AiOutlineShoppingCart size='1.5rem' />
                         </span>
-                    </li>            
+                    </li></Link>          
 
                     <li>                                     
                         <button
